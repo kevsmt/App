@@ -12,5 +12,7 @@
 		<script src="lib/app.js" type="text/javascript"></script>
 		<title></title>
 	</head>
-	<body id="app-root-view"></body>
+	<body>
+		<div id="app-root-view"></div>
+	</body>
 </html>

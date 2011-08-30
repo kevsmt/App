@@ -23,9 +23,9 @@
 			"./lib/deps/vendor/mustache.js",
 			"./lib/namespace.js",
 			"./app/views/Viewport.js",
-			"./app/views/Sidebar.js",
 			"./app/views/Center.js",
-			"./app/views/North.js"
+			"./app/views/North.js",
+			"./app/views/Sidebar.js"
 		],
 		"locale": {
 			"iso": "en",

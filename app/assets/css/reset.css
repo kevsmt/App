@@ -12,7 +12,6 @@ body, html, * {
 body {
 	background-color: #D1DAE3;
 	overflow: hidden;
-	visibility: hidden;
 }
 .left, .align-left {
 	float: left;
