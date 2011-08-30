@@ -1,0 +1,39 @@
+.rounded-corners (@top: 5px, @right: 5px, @bottom: 5px, @left: 5px) {
+	border-radius: @arguments;
+	-webkit-border-radius: @arguments;
+	-moz-border-radius: @arguments;
+}
+
+.box-shadow (@x: 0, @y: 0, @blur: 1px, @color: rgba(0, 0, 0, 0.5)) {
+	box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+}
+
+.box-shadow-inset (@x: 0, @y: 0, @blur: 1px, @color: rgba(0, 0, 0, 0.5)) {
+	box-shadow: inset @arguments;
+	-moz-box-shadow: inset @arguments;
+	-webkit-box-shadow: inset @arguments;
+}
+
+.box-shadow-inset-multi (@string) {
+	box-shadow: inset @string;
+	-moz-box-shadow: inset @string;
+	-webkit-box-shadow: inset @string;
+}
+
+.shadow-box (@args) {
+	box-shadow: @args;
+	-moz-box-shadow: @args;
+	-webkit-box-shadow: @args;
+}
+
+.smooth-text (@l: 0px, @t: 0px, @blur: 1px, @shadow: rgba(0,0,0,0.1)) {
+	text-shadow: @shadow @l @t @blur;
+	opacity: 0.999;
+}
+
+.font-smooth-text-shadow (@l: 0px, @t: 1px, @blur: 0px, @shadow: rgba(0,0,0,0.1), @color: #FFFFFF) {
+	.smooth-text (@l, @t, @blur, @shadow);
+	color: @color;
+}
