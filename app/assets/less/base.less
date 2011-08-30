@@ -46,36 +46,11 @@ h1, h2, h3, h4 {
 		padding: 0px 8px 1px;
 	}
 	
-	&.active {
-		.count {
-			background: #FFFFFF;
-			color: #546789;
-			text-shadow: none;
-		}
-	}
-	
 	.icon {
 		display: inline-block;
 		white-space: nowrap;
-		
-		&.dashboard {
-			background: url("../img/icons/dashboard.png") no-repeat left center;
-		}
-		&.contacts {
-			background: url("../img/icons/contacts.png") no-repeat left center;
-		}
-		&.tags {
-			background: url("../img/icons/tags.png") no-repeat left center;
-		}
-		&.flagged {
-			background: url("../img/icons/flagged.png") no-repeat left center;
-		}
-		&.my-tasks {
-			background: url("../img/icons/my-tasks.png") no-repeat left center;
-		}
-		&.my-appointments {
-			background: url("../img/icons/my-appointments.png") no-repeat left center;
-		}
+		background-repeat: no-repeat;
+		background-position: left center;
 	}
 }
 
@@ -341,6 +316,12 @@ h1, h2, h3, h4 {
 					color: #FFFFFF;
 					font-weight: bold;
 					text-shadow: rgba(0,0,0,0.2) 0px 1px 0px;
+				}
+				
+				p.count {
+					background: #FFFFFF;
+					color: #546789;
+					text-shadow: none;
 				}
 			}
 		}
