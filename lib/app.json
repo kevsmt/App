@@ -16,12 +16,14 @@
 			"api": "./services/api",
 			"templates": "./app/templates"
 		},
-		"autoloads": [
+		"dependencies": [
 			"./lib/deps/vendor/underscore/underscore.js", 
 			"./lib/deps/vendor/underscore/plugins/string.js", 
 			"./lib/deps/vendor/backbone/backbone.js", 
 			"./lib/deps/vendor/mustache.js",
-			"./lib/namespace.js",
+			"./lib/namespace.js"
+		],
+		"autoloads": [
 			"./app/views/Viewport.js",
 			"./app/views/Center.js",
 			"./app/views/North.js",
