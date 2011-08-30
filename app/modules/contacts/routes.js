@@ -37,6 +37,10 @@
 		});
 	});
 
+
+	App.Router.trigger('route:contact-index', function() {
+		console.log('Triggered');
+	})
 	
 
 })();
