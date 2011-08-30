@@ -206,11 +206,6 @@
 	 */
 	var sidebar = Backbone.View.extend({
 		el: sidebar_el,
-		
-		initialize: function () {
-			
-		},
-
 		MenuItem: MenuItem,
 		MenuTitle: MenuTitle
 	});

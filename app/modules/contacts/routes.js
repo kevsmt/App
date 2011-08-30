@@ -12,8 +12,7 @@
 	
 	var menuItem2 = new App.Sidebar.MenuItem({
 		text: 'Contacts2',
-		navigateTo: 'contacts2',
-		icon: App.configs.urls.modules + '/contacts/assets/icon.png'
+		navigateTo: 'contacts2'
 	});
 	
 	// Contact Index
