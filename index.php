@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 		<link rel="stylesheet" type="text/css" href="app/assets/css/reset.css">
-		<link rel="stylesheet/less" type="text/css" href="app/assets/less/base.less">
+		<link rel="stylesheet/less" type="text/css" href="app/assets/less/base.less?v1">
 		<!-- Required -->
 		<script src="lib/deps/less.js" type="text/javascript"></script>
 		<script src="lib/deps/head.js" type="text/javascript"></script>
