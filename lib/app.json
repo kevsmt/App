@@ -33,6 +33,6 @@
 			"iso": "en",
 			"folder_name": "locale"
 		},
-		"modules": ["contacts"]
+		"modules": ["app","contacts"]
 	}
 }

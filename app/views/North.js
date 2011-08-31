@@ -4,7 +4,7 @@
 		el: '#app-header',
 		
 		setTitle: function(text) {
-			return $('#app-header-title', $(this.el)).first().text(text);
+			return $('#app-header-title', this.el).first().text(text);
 		},
 		
 		setCenterTitle: function(text) {
