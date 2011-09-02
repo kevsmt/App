@@ -4,25 +4,7 @@
 	-moz-border-radius: @arguments;
 }
 
-.box-shadow (@x: 0, @y: 0, @blur: 1px, @color: rgba(0, 0, 0, 0.5)) {
-	box-shadow: @arguments;
-	-moz-box-shadow: @arguments;
-	-webkit-box-shadow: @arguments;
-}
-
-.box-shadow-inset (@x: 0, @y: 0, @blur: 1px, @color: rgba(0, 0, 0, 0.5)) {
-	box-shadow: inset @arguments;
-	-moz-box-shadow: inset @arguments;
-	-webkit-box-shadow: inset @arguments;
-}
-
-.box-shadow-inset-multi (@string) {
-	box-shadow: inset @string;
-	-moz-box-shadow: inset @string;
-	-webkit-box-shadow: inset @string;
-}
-
-.shadow-box (@args) {
+.box-shadow (@args: "0px 0px 1px rgba(0,0,0,0.5)") {
 	box-shadow: @args;
 	-moz-box-shadow: @args;
 	-webkit-box-shadow: @args;

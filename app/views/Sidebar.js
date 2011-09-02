@@ -18,8 +18,6 @@
 	 * @return	object
 	 */
 	function MenuTitle(config) {
-		var li, h3, self;
-		
 		// Apply Defaults
 		_.defaults(config, {
 			text: 'Untitled',
@@ -29,14 +27,15 @@
 		_.extend(this, config);
 		
 		// Create DOM Element
-		self = this, li = $('<li/>'), h3 = $('<h3/>');
+		var self = this, li = $('<li/>'), p = $('<p/>');
 		
 		// H3 Properties
-		h3.attr('id', self.id);
-		h3.html(self.text);
+		p.attr('id', self.id);
+		p.addClass('title');
+		p.html(self.text);
 		
-		// Append h3 -> li
-		li.append(h3);
+		// Append p -> li
+		li.append(p);
 		
 		// append object
 		sidebar_el.append(li);
@@ -77,7 +76,7 @@
 	 * @return	object
 	 */
 	function MenuItem(config) {
-		var link, splan, li, self, app = App.Router;
+		var app = App.Router;
 
 		// Apply Defaults
 		_.defaults(config, {
@@ -95,7 +94,7 @@
 		_.extend(this, config);
 
 		// Create DOM Element
-		self = this, link = $('<a/>'), span = $('<span/>'), li = $('<li/>');
+		var self = this, link = $('<a/>'), span = $('<span/>'), li = $('<li/>');
 
 		// link properties
 		link.addClass('action');
@@ -140,16 +139,6 @@
 	};
 
 	/*
-	 * clearActive
-	 *
-	 * @access	public
-	 * @return	void
-	 */
-	MenuItem.prototype.clearActive = function() {
-		sidebar_el.find('li.active').removeClass('active');
-	};
-
-	/*
 	 * deactivate
 	 *
 	 * @access	public
@@ -166,7 +155,7 @@
 	 * @return	void
 	 */
 	MenuItem.prototype.activate = function() {
-		this.clearActive();
+		App.Sidebar.clearActiveMenuItems();
 		this.getEl().addClass('active')
 	};
 
@@ -207,7 +196,17 @@
 	var sidebar = Backbone.View.extend({
 		el: sidebar_el,
 		MenuItem: MenuItem,
-		MenuTitle: MenuTitle
+		MenuTitle: MenuTitle,
+		
+		/*
+		 * clearActiveMenuItems
+		 * 
+		 * @access	public
+		 * @return	void
+		 */
+		clearActiveMenuItems: function() {
+			sidebar_el.find('li.active').removeClass('active');
+		}
 	});
 
 	// Make available for public

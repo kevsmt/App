@@ -5,11 +5,11 @@
 		<link rel="stylesheet" type="text/css" href="app/assets/css/reset.css">
 		<link rel="stylesheet/less" type="text/css" href="app/assets/less/base.less?v1">
 		<!-- Required -->
-		<script src="lib/deps/less.js" type="text/javascript"></script>
-		<script src="lib/deps/head.js" type="text/javascript"></script>
-		<script src="lib/deps/jquery.js" type="text/javascript"></script>
+		<script src="lib/deps/vendor/less.js" type="text/javascript"></script>
+		<script src="lib/deps/vendor/head.js" type="text/javascript"></script>
+		<script src="lib/deps/vendor/jquery/jquery.js" type="text/javascript"></script>
 		<!-- Main App Loader -->
-		<script src="lib/app.js" type="text/javascript"></script>
+		<script src="app/app.js?v1" type="text/javascript"></script>
 		<title></title>
 	</head>
 	<body>

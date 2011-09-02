@@ -10,12 +10,16 @@
 	outline: none;
 }
 
-body, html, input, textarea {
-	font-family: "Lucida Grande", "Segoe UI", Tahoma, sans-serif;
+body, html, input, textarea, p, span, a {
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Helvetica, sans-serif;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, .count {
 	font-family: "Ubuntu", sans-serif;
+}
+
+#app-root-view {
+	opacity: 0;
 }
 
 //------------------------------------------------------------------------------
@@ -39,7 +43,7 @@ h1, h2, h3, h4 {
 		margin-top: 3px;
 		float: right;
 		font-size: 10px !important;
-		text-shadow: 0px 1px 0px #69768b;
+		text-shadow: -1px 0px 0px #69768b;
 		color: white;
 		background: #96a8c7;
 		font-weight: bold;
@@ -83,7 +87,7 @@ h1, h2, h3, h4 {
 	a.action {
 		.grad_navy_split;	
 		.rounded-corners(4px, 4px, 4px, 4px);
-		.shadow-box(~"inset #192c4f -1px 0px 0px, inset #192c4f 1px 0px 0px, inset #192c4f 0px 1px 0px, inset #0b1323 0px -1px 0px, inset rgba(128,160,222,0.9) 0px 2px 0px, rgba(128,160,222,0.3) 0px 1px 0px");
+		.box-shadow(~"inset #192c4f -1px 0px 0px, inset #192c4f 1px 0px 0px, inset #192c4f 0px 1px 0px, inset #0b1323 0px -1px 0px, inset rgba(128,160,222,0.9) 0px 2px 0px, rgba(128,160,222,0.3) 0px 1px 0px");
 		
 		margin: 6px 1px;
 		display: block;
@@ -92,7 +96,7 @@ h1, h2, h3, h4 {
 							
 		&:active {
 			.grad_navy_reverse;
-			.shadow-box(~"inset #192c4f -1px 0px 10px, inset #0b1323 -1px 0px 1px, inset #192c4f 1px 0px 10px, inset #0b1323 1px 0px 1px, inset #192c4f 0px 1px 10px, inset #0b1323 0px 1px 1px, inset #0b1323 0px -1px 0px, rgba(128,160,222,0.3) 0px 1px 0px");
+			.box-shadow(~"inset #192c4f -1px 0px 10px, inset #0b1323 -1px 0px 1px, inset #192c4f 1px 0px 10px, inset #0b1323 1px 0px 1px, inset #192c4f 0px 1px 10px, inset #0b1323 0px 1px 1px, inset #0b1323 0px -1px 0px, rgba(128,160,222,0.3) 0px 1px 0px");
 		}
 		&:hover {
 			.grad_navy_split_lighter;
@@ -116,9 +120,14 @@ h1, h2, h3, h4 {
 			line-height: @app-north-height;
 			padding: @app-common-padding;
 		}
+		
+		#app-header-title {
+			cursor: pointer;
+		}
+		
 		.app-topbar {
 			&.left {
-				.box-shadow-inset-multi(~"rgba(98,128,183,0.5) -1px 0px 0px, rgba(29,39,52,0.3) 1px 0px 0px");
+				.box-shadow(~"inset rgba(98,128,183,0.5) -1px 0px 0px, rgba(29,39,52,0.3) 1px 0px 0px");
 				width: @app-sidebar-width;
 				
 				ul {
@@ -130,7 +139,7 @@ h1, h2, h3, h4 {
 				white-space: nowrap;
 			}
 			&.right {
-				.box-shadow-inset-multi(~"rgba(29,39,52,0.3) 1px 0px 0px, rgba(98,128,183,0.5) -1px 0px 0px");
+				.box-shadow(~"inset rgba(29,39,52,0.3) 1px 0px 0px, rgba(98,128,183,0.5) -1px 0px 0px");
 				position: fixed;
 				top: 0px;
 				right: 0px;
@@ -164,8 +173,8 @@ h1, h2, h3, h4 {
 				line-height: @app-north-height;
 								
 				div {
-					.rounded-corners(16px,16px,16px,16px);
-					.box-shadow(0px, 0px, 2px, rgba(0,0,0,1));
+					.rounded-corners(14px,14px,14px,14px);
+					.box-shadow(~"inset 0px 1px 5px rgba(0,0,0,0.3), 0px 0px 2px rgba(0, 0, 0, 1)");
 										
 					background: #FFFFFF;
 					margin-top: 7px;
@@ -206,20 +215,7 @@ h1, h2, h3, h4 {
 	
 	background: #e2e9f1;
 	
-	#app-sidebar {	
-		h3 {
-			.grad_sky;
-			
-			padding: @app-common-padding;
-			font-size: 11px;
-			text-transform: uppercase;
-			height: @app-sidebar-btngrp-height;
-			line-height: @app-sidebar-btngrp-height;
-			color: #747d84;
-			text-shadow: 0px 1px 0px #FFFFFF;
-			border-top: 1px solid #b2b9c4;
-			border-bottom: 1px solid #b4bbc4;
-		}
+	#app-sidebar {
 		
 		li, li a span {
 			font-size: 11px;
@@ -273,11 +269,23 @@ h1, h2, h3, h4 {
 			display: block;
 			margin: 0px;
 			padding: 0px;
-			border-top: 1px solid #d3d9e1;
+			
+			p.title {
+				.grad_sky;
+				
+				padding: @app-common-padding;
+				font-weight: bold;
+				font-size: 11px;
+				text-transform: uppercase;
+				height: @app-sidebar-btngrp-height;
+				line-height: @app-sidebar-btngrp-height;
+				color: #747d84;
+				text-shadow: 0px 1px 0px #FFFFFF;
+				border-bottom: 1px solid #b4bbc4;
+			}
 			
 			&:first-child {
-				h3 {
-					border-top: 0px solid #b2b9c4;
+				p {
 					border-bottom: 0px solid #b2b9c4;
 				}
 			}
@@ -334,7 +342,7 @@ h1, h2, h3, h4 {
 
 .app-rounded-content-box {
 	.rounded-corners();
-	.box-shadow-inset(0px, 1px, 1px, rgba(120, 127, 133, 0.3));
+	.box-shadow(~"inset 0px 1px 1px rgba(120, 127, 133, 0.3)");
 	
 	border: 1px solid #9ba3ab;
 	width: 300px;
@@ -354,8 +362,8 @@ h1, h2, h3, h4 {
 	}
 	
 	p {
-		.smooth-text(0px, 1px, 0px, rgba(255,255,255,0.8));
-		font-size: 12px;
+		.smooth-text(0px, 1px, 1px, rgba(255,255,255,0.8));
+		font-size: 11px;
 	}
 }
 
