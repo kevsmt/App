@@ -209,7 +209,7 @@
 					self.Template.load(App.configs.urls.templates + '/common', {
 						title: 'BROWSER NOT COMPATIBLE',
 						image: App.assetUrl('img/icons/x.png'),
-						message: 'Sorry your browser is not compatible for the moment.  Please use CSS3 & HTML5 / Webkit capable browsers.<br/><br/>Thank You!<br/><br/><br/>~Dev Team'
+						message: 'Sorry your browser is not compatible at the moment.  Please use CSS3 & HTML5 / Webkit capable browsers.<br/><br/>Thank You!<br/><br/><br/>~Dev Team'
 					}, document.body);
 				}
 				
