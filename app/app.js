@@ -209,7 +209,7 @@
 					self.Template.load(App.configs.urls.templates + '/common', {
 						title: 'BROWSER NOT COMPATIBLE',
 						image: App.assetUrl('img/icons/x.png'),
-						message: 'Sorry your browser is not compatible for the moment.  Please use major browser that supports CSS& HTML5. Thank You! ~Dev'
+						message: 'Sorry your browser is not compatible for the moment.  Please use CSS3 & HTML5 / Webkit capable browsers.<br/><br/>Thank You!<br/><br/><br/>~Dev Team'
 					}, document.body);
 				}
 				
@@ -264,7 +264,7 @@
 			async: true
 		}).success(function(response) {
 			$console('Parsing Template.');
-			$(el).html($.tmpl(response, data));
+			$(el).empty().append($.tmpl(response, data));
 			$console('-----------------------');
 		}).error(function(e) {
 			$console('Template ERROR:');
