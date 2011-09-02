@@ -23,10 +23,10 @@
 		},
 		
 		"dependencies": [
+			"./lib/deps/vendor/jquery/plugins/tmpl.js", 
 			"./lib/deps/vendor/underscore/underscore.js", 
 			"./lib/deps/vendor/underscore/plugins/string.js", 
-			"./lib/deps/vendor/backbone/backbone.js", 
-			"./lib/deps/vendor/handlebars.js",
+			"./lib/deps/vendor/backbone/backbone.js",
 			"./lib/namespace.js"
 		],
 		

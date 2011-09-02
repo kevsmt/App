@@ -14,7 +14,7 @@
 		show: function() {
 			$(this.el).animate({
 				opacity: 1
-			}, 300);
+			}, 125);
 		}
 
 	});

@@ -188,7 +188,7 @@
 				$console('-----------------------');
 				$console('Bootsrap: Checking Browser Compatibility..');
 				// Check browser compatibility
-				if($.browser.webkit || $.browser.mozilla || $.browser.msie) {
+				if($.browser.webkit || $.browser.mozilla) {
 					var tpl = self.configs.urls.templates + '/viewport';
 
 					$console('Compatibility: OK');
@@ -209,9 +209,10 @@
 					self.Template.load(App.configs.urls.templates + '/common', {
 						title: 'BROWSER NOT COMPATIBLE',
 						image: App.assetUrl('img/icons/x.png'),
-						message: 'Sorry your browser is not compatible.%n%n~ Dev'
+						message: 'Sorry your browser is not compatible for the moment.  Please use major browser that supports CSS& HTML5. Thank You! ~Dev'
 					}, document.body);
 				}
+				
 				$console('-----------------------');
 			});
 
@@ -242,7 +243,7 @@
 	 * @return	void
 	 */
 	self.Template.load = function(file, data, el, callback) {
-		var tpl, url = self.configs.rootURL, tplParser = Handlebars;
+		var tpl, url = self.configs.rootURL;
 		var ext = '.tpl' + (self.configs.cache ? '' : ('?' + (new Date()).getTime()));
 
 		if( typeof data === 'function') {
@@ -263,8 +264,7 @@
 			async: true
 		}).success(function(response) {
 			$console('Parsing Template.');
-			var template = tplParser.compile(response);
-			$(el).html(template(data));
+			$(el).html($.tmpl(response, data));
 			$console('-----------------------');
 		}).error(function(e) {
 			$console('Template ERROR:');
