@@ -12,9 +12,9 @@
 		el: '#app-root-view',
 
 		show: function() {
-			$(this.el).delay(500).animate({
+			$(this.el).animate({
 				opacity: 1
-			});
+			}, 300);
 		}
 
 	});

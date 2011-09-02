@@ -35,6 +35,10 @@
 
 		return li;
 	};
+	
+	var _clearActionButtons = function(ulid) {
+		$(ulid).empty();
+	};
 
 	/*
 	 * Backbone View
@@ -79,6 +83,16 @@
 		addLeftButton: function(title, handler) {
 			return _addActionButton(title, handler, '#app-header-left-options');
 		},
+		
+		/*
+		 * clearLeftButtons
+		 * 
+		 * @access	public
+		 * @return	void
+		 */
+		clearLeftButtons: function() {
+			_clearActionButtons('#app-header-left-options');
+		},
 
 		/*
 		 * addRightButton
@@ -91,6 +105,16 @@
 		 */
 		addRightButton: function(title, handler) {
 			return _addActionButton(title, handler, '#app-header-right-options')
+		},
+		
+		/*
+		 * clearRightButtons
+		 * 
+		 * @access	public
+		 * @return	void
+		 */
+		clearRightButtons: function() {
+			_clearActionButtons('#app-header-right-options');
 		}
 
 	});

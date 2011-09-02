@@ -26,3 +26,32 @@ h1, h2, h3, h4, .count {
 	a {
 	}
 }
+
+.action {
+	height: 20px;
+	display:block;
+	text-decoration: none;
+	color: #111;
+	width: @app-sidebar-width - 26;
+	position: relative;
+	overflow: hidden;
+	
+	.count {
+		.rounded-corners(16px, 16px, 16px, 16px);
+		
+		text-align: center;
+		margin-right: -5px;
+		margin-top: 2px;
+		float: right;
+		font-size: 10px !important;
+		font-weight: bold;
+		padding: 0px 8px 1px;
+	}
+	
+	.icon {
+		display: inline-block;
+		white-space: nowrap;
+		background-repeat: no-repeat;
+		background-position: left center;
+	}
+}

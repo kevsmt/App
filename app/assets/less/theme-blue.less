@@ -81,7 +81,7 @@
 	
 	#app-sidebar-left,
 	#app-sidebar-right {
-		p.title {
+		li.title p {
 			.grad_sky;
 			color: #747d84;
 			text-shadow: 0px 1px 0px #FFFFFF;
@@ -90,13 +90,41 @@
 		
 		.app-sidebar-items {
 			li {
+				border-top: 1px solid #d3d9e1;
+				
+				&:nth-child(2) {
+					border-top: 1px solid #b4bbc4;
+				}
+				
+				&:first-child {
+					border-top: 0px;
+					&.title p {
+						border-top: 0px;
+						border-bottom: 0px;
+					}
+				}
+				
+				a {
+					border-top: 1px solid #eef6ff;
+					cursor: pointer;
+					
+					p.count {
+						background: #96a8c7;
+						color: white;
+					}
+				}
+				
+				&:last-child a {
+					border-bottom: 1px solid #d3d9e1;
+				}
+				
 				&.active {
-					border-top: 1px solid #899cc0 !important;
+					border-top: 1px solid #899cc0;
 					
 					a {
 						.grad_light_blue;
-						border-top: 1px solid #b4c6e4 !important;
-						border-bottom: 1px solid #6c7b98 !important;					
+						border-top: 1px solid #b4c6e4;
+						border-bottom: 1px solid #6c7b98;					
 						color: #FFFFFF;
 						text-shadow: rgba(0,0,0,0.2) 0px 1px 0px;
 					}
@@ -128,6 +156,10 @@
 					.grad_sky_reverse;
 				}
 				
+				p.count {
+					text-shadow: -1px 0px 0px #69768b;
+				}
+				
 				span {
 					opacity: 0.7;
 						
@@ -137,42 +169,60 @@
 				}
 			}
 		}
-		
-		.app-sidebar-items {
-			li {
-				border-top: 1px solid #d3d9e1;
-				
-				&:nth-child(2) {
-					border-top: 1px solid #b4bbc4;
-				}
-				
-				&:first-child {
-					border-top: 0px;
-					p {
-						border-top: 0px;
-						border-bottom: 0px;
-					}
-				}
-				
-				a {
-					border-top: 1px solid #eef6ff;
-				}
-				
-				&:last-child a {
-					border-bottom: 1px solid #d3d9e1;
-				}
-			}		
-		}
 	}
 	
 	#app-sidebar-right {
 		border-left: 1px solid #b4bbc5;
 		background: #f0f0f0;
 		
-		p.title {
+		li.title p {
 			.grad_gray;
 			color: #777777;
-			border-bottom: 1px solid #b7b7b7;
+			border-bottom: 1px solid #b7b7b7 !important;
+		}
+		
+		.app-sidebar-items {
+			li {
+				border-top: 1px solid #f0f0f0;
+				
+				&:nth-child(2) {
+					border-top: 1px solid #f0f0f0 !important;
+					margin-top: 2px;
+				}
+				
+				&:last-child a {
+					border-bottom: 1px solid transparent;
+				}
+				
+				a {
+					border-top: 1px solid #f0f0f0;
+					border-bottom: 0px solid #f0f0f0;
+					color: #444444;
+					
+					p.count {
+						background-color: #999;
+						text-shadow: -1px 0px 0px #666;
+					}
+				}
+				
+				&.active {
+					border-top: 1px solid #999999 !important;
+					
+					a {
+						.grad_dark_gray;
+						border-top: 1px solid #c0c0c0;
+						border-bottom: 1px solid #808080;					
+						color: #FFFFFF;
+						text-shadow: rgba(0,0,0,0.3) 0px 1px 0px;
+					}
+					
+					p.count {
+						background: #FFFFFF;
+						color: #333;
+						text-shadow: none;
+					}
+				}
+			}
 		}
 	}
 }

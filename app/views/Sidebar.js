@@ -25,7 +25,7 @@
 			default:
 				position = sidebar_position[0];
 		}
-		
+
 		return ul;
 	};
 
@@ -37,7 +37,7 @@
 	 * @return	object
 	 */
 	function MenuTitle(config) {
-				// Apply Defaults
+		// Apply Defaults
 		_.defaults(config, {
 			text: 'Untitled',
 			id: _.uniqueId('#app-sidebar-items-title-'),
@@ -51,10 +51,10 @@
 
 		// H3 Properties
 		p.attr('id', self.id);
-		p.addClass('title');
 		p.html(self.text);
 
 		// Append p -> li
+		li.addClass('title');
 		li.append(p);
 
 		// append object
@@ -107,8 +107,7 @@
 			count: 0,
 			id: _.uniqueId('#app-sidebar-items-item-'),
 			position: sidebar_position[0],
-			handler: function() {
-			}
+			handler: null
 
 		});
 
@@ -127,7 +126,7 @@
 			if(self.navigateTo) {
 				app.navigate(self.navigateTo, true);
 			} else {
-				handler(e);
+				if (self.handler) self.handler.call(self, e);
 			}
 		});
 
@@ -145,6 +144,14 @@
 
 		// for getEl
 		this.__el = li;
+		this.__ul = ul;
+
+		// Check for active
+		
+		if(this.active == true)
+			this.activate(true);
+		if (this.count > 0)
+			this.setCount(this.count);
 
 		return this;
 	};
@@ -176,7 +183,7 @@
 	 * @return	void
 	 */
 	MenuItem.prototype.activate = function() {
-		App.Sidebar.clearActiveMenuItems();
+		App.Sidebar.clearActiveMenuItems(this.__ul);
 		this.getEl().addClass('active')
 	};
 
@@ -208,6 +215,10 @@
 	// Create Backbone View
 	//-------------------------------------------------------------------------------------
 
+	// right sidebar toggle
+
+	var toggler = $('#app-center').hasClass('show-sidebar-right'), togglel = $('#app-center').hasClass('show-sidebar-right');
+
 	/*
 	 * Backbone View
 	 *
@@ -215,44 +226,64 @@
 	 * @type	object
 	 */
 	var sidebar = Backbone.View.extend({
-		
+
 		// Alias
 		MenuItem: MenuItem,
-		
+
 		// Alias
 		MenuTitle: MenuTitle,
-		
+
 		/*
 		 * showLeftSidebar
-		 * 
+		 *
 		 * @access	public
 		 * @param	bool
 		 * @return	void
 		 */
 		showLeftSidebar: function(v) {
 			var el = $('#app-center');
-			
-			if (v === true || typeof v == 'undefined') {
+
+			if(v === true || typeof v == 'undefined') {
 				el.removeClass('show-sidebar-left').addClass('show-sidebar-left');
 			} else {
 				el.removeClass('show-sidebar-left');
 			}
+
+			return {
+				toggle: function(callback) {
+					App.Sidebar.showLeftSidebar( togglel = !togglel);
+
+					if( typeof callback == 'function')
+						callback.call(this, togglel);
+				}
+
+			}
 		},
-		
+
 		/*
 		 * showRightSidebar
-		 * 
+		 *
 		 * @access	public
 		 * @param	bool
 		 * @return	void
 		 */
 		showRightSidebar: function(v) {
 			var el = $('#app-center');
-			 
-			if (v === true || typeof v == 'undefined') {
+
+			if(v === true || typeof v == 'undefined') {
 				el.removeClass('show-sidebar-right').addClass('show-sidebar-right');
 			} else {
 				el.removeClass('show-sidebar-right');
+			}
+
+			return {
+				toggle: function(callback) {
+					App.Sidebar.showRightSidebar( toggler = !toggler);
+
+					if( typeof callback == 'function')
+						callback.call(this, toggler);
+				}
+
 			}
 		},
 
@@ -260,10 +291,11 @@
 		 * clearActiveMenuItems
 		 *
 		 * @access	public
+		 * @param	object
 		 * @return	void
 		 */
-		clearActiveMenuItems: function() {
-			$('li.active').removeClass('active');
+		clearActiveMenuItems: function(el) {
+			$('li.active', (el || document.body)).removeClass('active');
 		}
 
 	});
