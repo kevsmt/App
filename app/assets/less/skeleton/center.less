@@ -20,12 +20,28 @@
 }
 
 #app-center {
-	position: fixed;
-	top: @app-north-height;
-	left: @app-sidebar-width;
-	bottom: 0px;
-	right: 0px;
-	
-	#app-center-inner {	
+	#app-center-inner {
+		position: fixed;
+		top: @app-north-height + 1;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		overflow: auto;
+	}
+	&.show-sidebar-left {
+		#app-center-inner {
+			left: @app-sidebar-width + 1;
+		}
+		#app-sidebar-left {
+			visibility: visible;
+		}
+	}
+	&.show-sidebar-right {
+		#app-center-inner {
+			right: @app-sidebar-width;
+		}
+		#app-sidebar-right {
+			visibility: visible;
+		}
 	}
 }

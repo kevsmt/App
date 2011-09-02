@@ -51,85 +51,6 @@
 }
 
 //----------------------------------------------------------------------------------------
-// WEST
-//----------------------------------------------------------------------------------------
-
-#app-west {
-	background: #e2e9f1;
-	border-right: 1px solid #b4bbc4;
-	
-	#app-sidebar-optbtngrps {
-		.grad_sky;
-		border-top: 1px solid #b4bbc4;
-		border-right: 1px solid #b4bbc4;
-		
-		a {
-			.grad_sky_split;
-			border: 1px solid #b4bbc4;
-						
-			&:active {
-				.grad_sky_reverse;
-			}
-			
-			span {
-				opacity: 0.7;
-					
-				&:hover {
-					opacity: 1;
-				}
-			}
-		}
-	}
-	
-	#app-sidebar-items {
-		li {
-			p.title {
-				.grad_sky;
-				color: #747d84;
-				text-shadow: 0px 1px 0px #FFFFFF;
-				border-bottom: 1px solid #b4bbc4;
-			}
-			
-			a {
-				border-top: 1px solid #eef6ff;
-			}
-			
-			&:first-child {
-				p {
-					border-bottom: 0px;
-				}
-			}
-			
-			&:last-child a {
-				border-bottom: 1px solid #d3d9e1;
-			}
-			
-			&:nth-child(2) {
-				border-top: 1px solid #b4bbc4;
-			}
-			
-			&.active {
-				border-top: 1px solid #899cc0;
-				
-				a {
-					.grad_light_blue;
-					border-top: 1px solid #b4c6e4;
-					border-bottom: 1px solid #6c7b98;					
-					color: #FFFFFF;
-					text-shadow: rgba(0,0,0,0.2) 0px 1px 0px;
-				}
-				
-				p.count {
-					background: #FFFFFF;
-					color: #546789;
-					text-shadow: none;
-				}
-			}
-		}
-	}
-}
-
-//----------------------------------------------------------------------------------------
 // CENTER
 //----------------------------------------------------------------------------------------
 
@@ -148,5 +69,110 @@
 	
 	p {
 		.smooth-text(0px, 1px, 1px, rgba(255,255,255,0.8));
+	}
+}
+
+#app-center {
+	#app-center-inner {
+		background: #D1DAE3;
+	}
+	
+	// SIDEBARS LEFT/RIGHT
+	
+	#app-sidebar-left,
+	#app-sidebar-right {
+		p.title {
+			.grad_sky;
+			color: #747d84;
+			text-shadow: 0px 1px 0px #FFFFFF;
+			border-bottom: 1px solid #b4bbc4;
+		}
+		
+		.app-sidebar-items {
+			li {
+				&.active {
+					border-top: 1px solid #899cc0 !important;
+					
+					a {
+						.grad_light_blue;
+						border-top: 1px solid #b4c6e4 !important;
+						border-bottom: 1px solid #6c7b98 !important;					
+						color: #FFFFFF;
+						text-shadow: rgba(0,0,0,0.2) 0px 1px 0px;
+					}
+					
+					p.count {
+						background: #FFFFFF;
+						color: #546789;
+						text-shadow: none;
+					}
+				}
+			}
+		}
+	}
+	
+	#app-sidebar-left {
+		border-right: 1px solid #b4bbc4;
+		background: #e2e9f1;
+		
+		.app-sidebar-optbtngrps {
+			.grad_sky;
+			border-top: 1px solid #b4bbc4;
+			border-right: 1px solid #b4bbc4;
+			
+			a {
+				.grad_sky_split;
+				border: 1px solid #b4bbc4;
+							
+				&:active {
+					.grad_sky_reverse;
+				}
+				
+				span {
+					opacity: 0.7;
+						
+					&:hover {
+						opacity: 1;
+					}
+				}
+			}
+		}
+		
+		.app-sidebar-items {
+			li {
+				border-top: 1px solid #d3d9e1;
+				
+				&:nth-child(2) {
+					border-top: 1px solid #b4bbc4;
+				}
+				
+				&:first-child {
+					border-top: 0px;
+					p {
+						border-top: 0px;
+						border-bottom: 0px;
+					}
+				}
+				
+				a {
+					border-top: 1px solid #eef6ff;
+				}
+				
+				&:last-child a {
+					border-bottom: 1px solid #d3d9e1;
+				}
+			}		
+		}
+	}
+	
+	#app-sidebar-right {
+		border-left: 1px solid #b4bbc5;
+		background: #f0f0f0;
+		
+		p.title {
+			.grad_gray;
+			color: #777777;
+			border-bottom: 1px solid #b7b7b7;
+		}
 	}
 }

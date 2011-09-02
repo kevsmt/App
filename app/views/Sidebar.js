@@ -4,52 +4,72 @@
 
 (function() {
 
-	var sidebar_el = $('#app-sidebar-items');
+	var sidebar_left_el = $('#app-sidebar-left .app-sidebar-items');
+	var sidebar_right_el = $('#app-sidebar-right .app-sidebar-items');
+	var sidebar_position = ['left', 'right'];
 
 	//----------------------------------------------------------
 	// Object Constructors
 	//----------------------------------------------------------
-	
+
+	function _infoPosition(position) {
+		var ul = sidebar_left_el;
+
+		// check for positions
+		switch (position) {
+			//case position[0]:
+			//break;
+			case sidebar_position[1]:
+				ul = sidebar_right_el;
+				break;
+			default:
+				position = sidebar_position[0];
+		}
+		
+		return ul;
+	};
+
 	/*
 	 * MenuTitle
-	 * 
+	 *
 	 * @access	public
 	 * @param	config
 	 * @return	object
 	 */
 	function MenuTitle(config) {
-		// Apply Defaults
+				// Apply Defaults
 		_.defaults(config, {
 			text: 'Untitled',
 			id: _.uniqueId('#app-sidebar-items-title-'),
+			position: sidebar_position[0]
 		});
-		
+
 		_.extend(this, config);
-		
+
 		// Create DOM Element
-		var self = this, li = $('<li/>'), p = $('<p/>');
-		
+		var self = this, li = $('<li/>'), p = $('<p/>'), ul = _infoPosition(config.position);
+
 		// H3 Properties
 		p.attr('id', self.id);
 		p.addClass('title');
 		p.html(self.text);
-		
+
 		// Append p -> li
 		li.append(p);
-		
+
 		// append object
-		sidebar_el.append(li);
-		
+		ul.append(li);
+
 		// for getEl
 		this.__el = li;
-		
+
 		return this;
 	};
-	
+
 	/*
 	 * text
 	 * Set/Retrieve
-	 * 
+	 *
 	 * @access	public
 	 * @param	arguments
 	 * @return	object
@@ -57,7 +77,7 @@
 	MenuTitle.prototype.text = function() {
 		return this.getEl().text(arguments);
 	};
-	
+
 	/*
 	 * getEl
 	 *
@@ -86,6 +106,7 @@
 			active: false,
 			count: 0,
 			id: _.uniqueId('#app-sidebar-items-item-'),
+			position: sidebar_position[0],
 			handler: function() {
 			}
 
@@ -94,7 +115,7 @@
 		_.extend(this, config);
 
 		// Create DOM Element
-		var self = this, link = $('<a/>'), span = $('<span/>'), li = $('<li/>');
+		var self = this, link = $('<a/>'), span = $('<span/>'), li = $('<li/>'), ul = _infoPosition(config.position);
 
 		// link properties
 		link.addClass('action');
@@ -120,7 +141,7 @@
 		li.append(link);
 
 		// append to parent
-		sidebar_el.append(li);
+		ul.append(li);
 
 		// for getEl
 		this.__el = li;
@@ -171,15 +192,15 @@
 
 		if(!( p = this.getEl().find('p.count')[0])) {
 			p = $('<p/>').addClass('count');
-			
+
 			// append p
-			if (a = this.getEl().find('a.action')[0]) {
+			if( a = this.getEl().find('a.action')[0]) {
 				$(a).append(p);
 			}
 		}
-		
+
 		console.log(p);
-		
+
 		p.text(v);
 	};
 
@@ -194,19 +215,57 @@
 	 * @type	object
 	 */
 	var sidebar = Backbone.View.extend({
-		el: sidebar_el,
+		
+		// Alias
 		MenuItem: MenuItem,
+		
+		// Alias
 		MenuTitle: MenuTitle,
 		
 		/*
-		 * clearActiveMenuItems
+		 * showLeftSidebar
 		 * 
+		 * @access	public
+		 * @param	bool
+		 * @return	void
+		 */
+		showLeftSidebar: function(v) {
+			var el = $('#app-center');
+			
+			if (v === true || typeof v == 'undefined') {
+				el.removeClass('show-sidebar-left').addClass('show-sidebar-left');
+			} else {
+				el.removeClass('show-sidebar-left');
+			}
+		},
+		
+		/*
+		 * showRightSidebar
+		 * 
+		 * @access	public
+		 * @param	bool
+		 * @return	void
+		 */
+		showRightSidebar: function(v) {
+			var el = $('#app-center');
+			 
+			if (v === true || typeof v == 'undefined') {
+				el.removeClass('show-sidebar-right').addClass('show-sidebar-right');
+			} else {
+				el.removeClass('show-sidebar-right');
+			}
+		},
+
+		/*
+		 * clearActiveMenuItems
+		 *
 		 * @access	public
 		 * @return	void
 		 */
 		clearActiveMenuItems: function() {
-			sidebar_el.find('li.active').removeClass('active');
+			$('li.active').removeClass('active');
 		}
+
 	});
 
 	// Make available for public

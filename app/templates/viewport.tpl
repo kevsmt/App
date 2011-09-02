@@ -24,15 +24,15 @@
 	</div>
 </div>
 
-<div id="app-west">
-	<div id="app-west-inner">
-		<div id="app-sidebar">
-			<ul id="app-sidebar-items"></ul>
-			<ul id="app-sidebar-optbtngrps"></ul>
-		</div>
+<div id="app-center" class="show-sidebar-left">
+	<div id="app-sidebar-left">
+		<ul class="app-sidebar-items"></ul>
+		<ul class="app-sidebar-optbtngrps"></ul>
 	</div>
-</div>
-
-<div id="app-center">
+	
 	<div id="app-center-inner"></div>
+	
+	<div id="app-sidebar-right">
+		<ul class="app-sidebar-items"></ul>
+	</div>
 </div>
