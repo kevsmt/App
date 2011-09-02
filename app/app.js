@@ -142,7 +142,9 @@
 			},
 
 			home: function() {
-				$console('HOME!!');
+				App.Template.page404({
+					message: 'Oops!'
+				});
 			}
 
 		});
@@ -289,10 +291,10 @@
 	 */
 	self.Template.add = function(name, template, data) {
 		if(name && template && !self.Template[name]) {
-			self.Template[name] = function(adata, el, callback) {
-				self.Template.load(template, _.extend((data || {}), adata), el, callback);
+			self.Template[name] = function(d, el, callback) {
+				var d = _.defaults(d||{}, data);
+				self.Template.load(template, d, el, callback);
 			};
-
 		}
 	};
 
