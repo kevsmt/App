@@ -128,17 +128,27 @@
 	 * @param	callback
 	 * @return	void
 	 */
-	var initApp = function(callback) {
+	var initApp = function() {
 		// Application Router
 		var Router = Backbone.Router.extend({
+
+			routes: {
+				'': 'home',
+				'*page': 'page_not_found'
+			},
+
+			page_not_found: function() {
+				App.Template.page404();
+			},
+
+			home: function() {
+				$console('HOME!!');
+			}
 
 		});
 
 		// Instantiate Router Constructor
 		self.Router = new Router();
-
-		// Call callback
-		callback();
 	};
 
 	/*
@@ -180,6 +190,11 @@
 					var tpl = self.configs.urls.templates + '/viewport';
 
 					$console('Compatibility: OK');
+
+					$console('-----------------------');
+					$console('Init App...');
+					initApp();
+					$console('-----------------------');
 
 					self.Template.load(tpl, null, '#app-root-view', function() {
 						$console('Bootstrap: Load Autoloads:');
@@ -300,22 +315,18 @@
 	 * Run Bootstrap
 	 */
 	bootstrap(function() {
-		// Init Application Fns, etc.
-		initApp(function() {
-			// Load Modules
-			loadModules(function() {
-				// Set Backbone Configs
-				Backbone.emulateHTTP = true;
-				Backbone.emulateJSON = true;
-				Backbone.history.start({
-					pushState: true,
-					root: '/app/'
-				});
-
-				// Show Viewport
-				App.Viewport.show();
+		// Load Modules
+		loadModules(function() {
+			// Set Backbone Configs
+			Backbone.emulateHTTP = true;
+			Backbone.emulateJSON = true;
+			Backbone.history.start({
+				pushState: true,
+				root: '/app/'
 			});
 
+			// Show Viewport
+			App.Viewport.show();
 		});
 
 	});
