@@ -1,0 +1,131 @@
+//------------------------------------------------------------------------------
+// SIDEBAR - LEFT/RIGHT
+//------------------------------------------------------------------------------
+
+.action {
+	.count {
+		.rounded-corners(16px, 16px, 16px, 16px);
+		
+		text-align: center;
+		margin-right: 20px;
+		margin-top: 2px;
+		float: right;
+		font-size: 10px !important;
+		font-weight: bold;
+		padding: 0px 8px 1px;
+	}
+	
+	.icon {
+		display: inline-block;
+		white-space: nowrap;
+		background-repeat: no-repeat;
+		background-position: left center;
+	}
+}
+
+.app-sidebar-items {
+	margin: 0px;
+	padding: 0px 0px 1px 0px;
+	
+	li, li a span {
+		font-size: 11px;
+	}
+
+	li {
+		display: block;
+		margin: 0px;
+		padding: 0px;
+					
+		a {
+			display: block;
+			font-size: 12px;
+			padding: 5px 0px 5px 10px;
+			width: 100%;
+
+			span {
+				padding-left: 22px;
+				height: 16px;
+				width: 16px;
+				margin-top: 2px;
+			}
+		}
+		
+		&.active {
+			margin-bottom: -1px;
+			
+			a {
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+#app-sidebar-left, 
+#app-sidebar-right {
+	visibility: hidden;
+
+	p.title, li.title > p {
+		padding: @app-common-padding;
+		font-weight: bold;
+		font-size: 11px;
+		text-transform: uppercase;
+		height: @app-sidebar-btngrp-height;
+		line-height: @app-sidebar-btngrp-height;
+	}
+}
+
+#app-sidebar-left {
+	position: absolute;
+	left: 0px;
+	top: @app-north-height+1;
+	width: @app-sidebar-width;
+	bottom: @app-sidebar-btngrp-height;
+	display: block;
+	
+	.app-sidebar-optbtngrps {
+		position: fixed;
+		bottom: 0px;
+		left: 0px;
+		height: @app-sidebar-btngrp-height;
+		width: @app-sidebar-width;
+		padding: 0px;
+		
+		li {
+			display: inline-block;
+		}
+		
+		a {
+			width: 24px;
+			border-width: 0px 1px 0px 0px;
+			
+			span {
+				width: 24px;
+				height: @app-sidebar-btngrp-height;
+				display:block;
+			}
+		}
+	}
+
+	.app-sidebar-items {
+		max-height: 250px;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+}
+
+#app-sidebar-right {
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	top: @app-north-height + 1;
+	display: block;
+	width: @app-sidebar-width - 1;
+	
+	.app-sidebar-items {
+		li {
+			a {
+				padding: 0px 13px;
+			}
+		}
+	}
+}

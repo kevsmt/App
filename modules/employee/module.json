@@ -1,0 +1,10 @@
+{
+	"name": "Employee",
+	"version": "0.0.1",
+	"main": "routes.js",
+	"dependencies": [
+		"/modules/employee/views/d.js",
+		"/modules/employee/views/e.js",
+		"/modules/employee/views/f.js"
+	]
+}

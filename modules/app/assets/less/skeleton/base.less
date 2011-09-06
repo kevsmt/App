@@ -1,0 +1,38 @@
+@import "constants.less";
+@import "functions.less";
+@import "gradients.less";
+@import "north.less";
+@import "center.less";
+@import "sidebar.less";
+
+//------------------------------------------------------------------------------
+// ROOT
+//------------------------------------------------------------------------------
+
+* {
+	outline: none;
+}
+
+body, html, input, textarea, p, span, a {
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, .count {
+	font-family: "Ubuntu", sans-serif;
+}
+
+#app-root-view {
+	opacity: 0;
+	a {
+	}
+}
+
+.action {
+	height: 20px;
+	display:block;
+	text-decoration: none;
+	color: #111;
+	width: @app-sidebar-width - 26;
+	position: relative;
+	overflow: hidden;
+}

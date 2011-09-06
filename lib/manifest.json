@@ -1,0 +1,11 @@
+{
+	"name"        : "app",
+	"version"     : "0.0.1",
+	"description" : "KickAss App. NodeJS/PHP/* as backend-api",
+	"homepage"    : "http://systemsacumen.com/",
+	"author"      : "Kevinralph Tenorio <khebs@live.com>",
+	"rootURL"   	: "http://dev.localhost/app",
+	"cached"			: true,
+	"iso"       	: "en",
+	"modules"			: [ "app" ]
+}

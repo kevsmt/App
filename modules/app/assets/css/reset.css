@@ -1,0 +1,21 @@
+//@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
+
+body, html {
+	height: 100%;
+	width: 100%;
+}
+
+body, html, * {
+	margin: 0px;
+	padding: 0px;
+}
+body, html {
+	background-color: #D1DAE3;
+	overflow: hidden;
+}
+.left, .align-left {
+	float: left;
+}
+.right, .align-right {
+	float: right;
+}

@@ -1,0 +1,25 @@
+.rounded-corners (@top: 5px, @right: 5px, @bottom: 5px, @left: 5px) {
+	border-radius: @arguments;
+	-webkit-border-radius: @arguments;
+	-moz-border-radius: @arguments;
+}
+
+.box-shadow (@args: "0px 0px 1px rgba(0,0,0,0.5)") {
+	box-shadow: @args;
+	-moz-box-shadow: @args;
+	-webkit-box-shadow: @args;
+}
+
+.text-shadow (@l: 0px, @t: 0px, @blur: 1px, @shadow: rgba(0,0,0,0.1)) {
+	text-shadow: @shadow @l @t @blur;
+}
+
+.smooth-text (@l: 0px, @t: 0px, @blur: 1px, @shadow: rgba(0,0,0,0.1)) {
+	text-shadow: @shadow @l @t @blur;
+	opacity: 0.999;
+}
+
+.font-smooth-text-shadow (@l: 0px, @t: 1px, @blur: 0px, @shadow: rgba(0,0,0,0.1), @color: #FFFFFF) {
+	.smooth-text (@l, @t, @blur, @shadow);
+	color: @color;
+}

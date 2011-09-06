@@ -1,0 +1,62 @@
+//------------------------------------------------------------------------------
+// CENTER
+//------------------------------------------------------------------------------
+
+.app-rounded-content-box {
+	.rounded-corners();
+	width: 300px;
+	margin: 0 auto;
+	padding: 20px;
+	margin-top: 80px;
+	
+	h1 {
+		margin-bottom: 4px;
+		font-size: 15px;
+	}
+	
+	p {
+		font-size: 11px;
+	}
+}
+
+#app-center {
+	#app-center-inner {
+		position: fixed;
+		top: @app-north-height + 1;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		overflow: auto;
+
+		.content {
+			position: fixed;
+			top: @app-north-height + 1;
+			left: @app-sidebar-width + 1;
+			right: 0px;
+			bottom: 0px;
+			overflow: auto;
+		}
+	}
+	&.show-sidebar-left {
+		#app-center-inner {
+			left: @app-sidebar-width + 1;
+			.content {
+				left: @app-sidebar-width + 1;
+			}
+		}
+		#app-sidebar-left {
+			visibility: visible;
+		}
+	}
+	&.show-sidebar-right {
+		#app-center-inner {
+			right: @app-sidebar-width;
+			.content {
+				right: @app-sidebar-width;
+			}
+		}
+		#app-sidebar-right {
+			visibility: visible;
+		}
+	}
+}
